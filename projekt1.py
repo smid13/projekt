@@ -36,10 +36,8 @@ garpike and stingray are also present.
 lomitka = '-'*40
 users = {'bob':'123','ann':'pass123','mike':'password123','liz':'pass123'}
 
+
 # přihlášení do systemu a ověření
-
-print(users)
-
 user = input('Enter your username : ')
 password = input('Enter your password: ')
 print(lomitka)
@@ -130,10 +128,16 @@ slova_podle_delky = dict()
 for a in vycistena_slova:
    slova_podle_delky[len(a)] = slova_podle_delky.get(len(a),0)+1
 
-print("LEN|  OCCURENCES  |NR.")
+# serazeni od nejmene cetnych
+
+slova_serazena = dict()
+while slova_podle_delky:
+    slova_serazena[min(slova_podle_delky)]=slova_podle_delky.get(min(slova_podle_delky))
+    slova_podle_delky.pop(min(slova_podle_delky))
+znak_grafu = "*"
+mezera = " "
+print(f"LEN | OCCURENCES{10*mezera}|NR.")
 print(lomitka)
-
-for a,i in slova_podle_delky.items():
-    print(a,"  ","*"*i,"  ",i)
-
+for a,i in slova_serazena.items():
+    print(f" {a}{(3-len(str(a)))*mezera}|{'*'*i}{(20-i)*mezera} |{i}")
 
