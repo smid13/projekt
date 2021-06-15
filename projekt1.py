@@ -79,7 +79,7 @@ pocet_slov = len(vycistena_slova)
 # pocet slov zacinajicich velkym pismenem
 velka_pismena = []
 for a in vycistena_slova:
-    if a[0].isupper():
+    if a.istitle():
         velka_pismena.append(a)
 
 pocet_velka_pismena = len(velka_pismena)
